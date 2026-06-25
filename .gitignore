@@ -1,0 +1,11 @@
+
+*.exe
+*.out
+main
+programa
+a.out
+*.o
+*.gch
+.vscode/
+data/*.csv
+*.csv   
