@@ -1,0 +1,1 @@
+O diretório "data" é o local de saída de dados persistidos em .csv . Aqui será possível encontrar todas as leituras arquivadas.
