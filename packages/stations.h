@@ -13,7 +13,11 @@ typedef struct Estacao {
     char sensor[20];
     int n; //QUANTIDADE DE LEITURAS
     float *leituras;
+    float media;
+    float variancia;
     float desvioPadrao;
+    float maiorLeitura;
+    float menorLeitura;
     DataLeitura data;
 }Estacao;
 
