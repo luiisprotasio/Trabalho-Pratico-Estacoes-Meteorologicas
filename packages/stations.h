@@ -16,8 +16,6 @@ typedef struct Estacao {
     float media;
     float variancia;
     float desvioPadrao;
-    float maiorLeitura;
-    float menorLeitura;
     DataLeitura data;
 }Estacao;
 
