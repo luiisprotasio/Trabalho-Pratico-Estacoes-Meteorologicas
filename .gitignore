@@ -3,6 +3,7 @@
 *.out
 main
 programa
+rodar_testes
 a.out
 *.o
 *.gch
