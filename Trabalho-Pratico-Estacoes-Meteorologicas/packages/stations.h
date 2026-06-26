@@ -20,8 +20,8 @@ typedef struct Estacao {
 }Estacao;
 void adicionarEstacao(Estacao **name);// Adiciona uma nova estação ao sistema, registrando todos seus dados e automaticamente calculando suas estatísticas.
 void editarEstacao(Estacao *name, int modo); // Permite editar nome(1), operador(2), sensor(3) ou data da estação(4), de acordo com o modo.
-void removerEstacao(Estacao *name);
+void removerEstacao(Estacao **name,int id);
 void listarEstacoes();
 void buscarPorOperador(char *name);
-void detectarAnomalias(Estacao *name);
+void detectarAnomalias(Estacao **name,int id);
 #endif
