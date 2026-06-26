@@ -1,5 +1,10 @@
 Para compilar e executar o código, siga estas instruções:
 
+Via make: 
+make && ./programa
+
+Via terminais:
+
 Terminal do Linux:
 gcc source\*.c -o programa.exe && programa.exe
 
