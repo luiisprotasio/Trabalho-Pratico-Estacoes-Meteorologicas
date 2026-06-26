@@ -33,7 +33,13 @@ void adicionarEstacao(Estacao *name){
     } printf("Sensor registrado. Estação pronta para registrar leituras! Informe o número de leituras a serem feitas.\n");
     while(scanf("%d%c",&name->n,&temp)!=2||temp!='\n'||name->n<=0||name->n>9999){ printf("Número inválido. Certifique-se de inserir somente um inteiro entre 1 e 9999\n");
     while (getchar() != '\n'); //limpador de buffer
-    } printf("Registrando %d leituras. Digite-as uma por vez.\n",name->n);
+    }
+    name->leituras = (float *)calloc(name->n,sizeof(float));
+    if (name->leituras==NULL){
+        printf("Erro na alocação da memória.");
+        return;
+    }
+    printf("Foram alocadas %d leituras.Registrando %d leituras. Digite-as uma por vez.\n",name->n,name->n);
     for (int i =0;i<name->n;i++){
         if(scanf("%f%c",&name->leituras[i],&temp)!=2||temp!='\n'){
             printf("Leitura inválida. Tente novamente.\n");

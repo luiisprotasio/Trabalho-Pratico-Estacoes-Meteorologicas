@@ -20,6 +20,11 @@ int verificaAlfa(char *str){
     char temp[60];
     strcpy(temp,str);
     temp[strlen(temp)-1]='\0';
+    if(strlen(temp)==1){
+        if(!isalpha(temp[0])){
+            return 1;
+        }
+    }
     for(int i=0;i<strlen(temp)-1;i++){
         if(!isalpha(temp[i])){
             return 1;
