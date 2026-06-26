@@ -50,7 +50,8 @@ void adicionarEstacao(Estacao *name){
     while(scanf("%d/%d/%d",&name->data.dia,&name->data.mes,&name->data.ano)!=3||verificaData(name->data)){
         printf("Data inválida. Certifique-se de inserir uma data válida seguindo o modelo dd/mm/aaaa.\n");
         while (getchar() != '\n');// limpador de buffer
-    } printf("Data registrada com sucesso. Calculando estatísticas...\n");
+    }
+    ("Data registrada com sucesso. Calculando estatísticas...\n");
     name->media=calcularMediaRecursiva(name->leituras,name->n);
     name->variancia= calcularVariancia(name->leituras,name->n);
     name->desvioPadrao=calcularDesvioPadrao(name->leituras,name->n);

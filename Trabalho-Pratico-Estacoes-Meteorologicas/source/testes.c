@@ -9,7 +9,7 @@
     #include "../packages/functions.h"
 int main() {
     Estacao lista[10];
-    adicionarEstacao(&lista[1]);
+    adicionarEstacao(&lista[0]);
     int media,maior,menor,v,dp;
     /*media = lista[1].media;
     maior=achaMaior(lista[1].leituras,lista[1].n);
