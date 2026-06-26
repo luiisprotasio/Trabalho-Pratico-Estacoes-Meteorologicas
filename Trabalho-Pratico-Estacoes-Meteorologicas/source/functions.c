@@ -4,7 +4,9 @@
 #include <ctype.h>
 #include "../packages/functions.h"
 #include "../packages/stations.h"
-
+void clean(){
+    while (getchar() != '\n');
+}
 int verificaCorteEntrada(char *str){
     if(str==NULL){
         return 1; //fgets encontrou erro

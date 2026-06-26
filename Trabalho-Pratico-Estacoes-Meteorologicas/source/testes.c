@@ -8,7 +8,7 @@
     #include "../packages/data.h"
     #include "../packages/functions.h"
 int main() {
-    Estacao lista[10];
+    Estacao *lista[10000]={NULL};
     adicionarEstacao(&lista[0]);
     int media,maior,menor,v,dp;
     /*media = lista[1].media;
