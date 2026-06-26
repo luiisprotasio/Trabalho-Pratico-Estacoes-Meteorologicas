@@ -7,11 +7,11 @@ O projeto foi escrito manualmente, gastando aproximadamente **15 horas de trabal
 
 ## 🚀Sobre o programa: 
  O Programa se consiste em um painel de controle interativo para gerenciamento de um sistema de Estações Meteorológicas. Por meio dele, é possível realizar diversas tarefas:
-*Gerenciamento de Estações: É possível criar, configurar, editar e excluir estações na rede.
-*Leituras climáticas: É possível inserir leituras relativas a cada estação.
-*Visualização: É possível ter listar as estações de formas diferentes para filtragem.
-*Análise de dados: Cálculo de estatísticas e deteccão de anomalias.
-*Persistência de dados: O programa gera e lê arquivos CSV para garantir persistencia de dados.
+* Gerenciamento de Estações: É possível criar, configurar, editar e excluir estações na rede.
+* Leituras climáticas: É possível inserir leituras relativas a cada estação.
+* Visualização: É possível ter listar as estações de formas diferentes para filtragem.
+* Análise de dados: Cálculo de estatísticas e deteccão de anomalias.
+* Persistência de dados: O programa gera e lê arquivos CSV para garantir persistencia de dados.
 
 ### 📂 Estrutura do repo:
 O projeto adota uma arquitetura modular para separar as responsabilidades do código:
@@ -25,15 +25,16 @@ O projeto adota uma arquitetura modular para separar as responsabilidades do có
 O projeto contém funcionalidade makefile, mas também é possível compilar direto pelo terminal:
 **LINUX**
 
-*Via `make`:
-make && ./programa
+* Via make:
+`make && ./programa`
 
-Terminal:
-gcc source/*.c -o programa -lm && ./programa
+* Via Terminal:
+`gcc source/*.c -o programa -lm && ./programa`
 
 **WINDOWS**
 
-*Via `make`:
-make && .\programa.exe
+* Via make:
+`make && .\programa.exe`
 
-gcc source\*.c -o programa.exe && .\programa.exe
+* Via CMD/Powershell
+`gcc source\*.c -o programa.exe && .\programa.exe`
