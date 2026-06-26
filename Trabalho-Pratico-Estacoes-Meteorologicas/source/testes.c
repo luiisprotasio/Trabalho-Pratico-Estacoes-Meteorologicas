@@ -9,8 +9,9 @@
     #include "../packages/functions.h"
 int main() {
     Estacao *lista[10000]={NULL};
-    adicionarEstacao(lista);
-    salvarCSV(lista,10000,"teste.csv");
+    carregarCSV(lista,10000,"teste");
+    /*adicionarEstacao(lista);
+    salvarCSV(lista,10000,"teste");*/
     listarEstacoes(lista);
     buscarPorOperador(lista,"Luis");
     buscarPorOperador(lista,"Clenis");
