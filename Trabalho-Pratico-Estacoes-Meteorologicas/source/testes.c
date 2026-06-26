@@ -58,19 +58,40 @@ while(q1==1){
         clear();
         break;
     }
-}while(q2==4){
+}if(q2==4){
     clear();
     break;
 }
 
-}while(q1==2){printf("=============|Exportar/Importar dados - Estações Meteorológicas|=============\nSelecione a opção desejada:\n1-Exportar Dados.\n2-Voltar.\n==============================================================================\n"); while(scanf("%d%c",&q3,&temp)!=2||q3>2|q1<3){
+}while(q1==2){printf("=============|Exportar/Importar dados - Estações Meteorológicas|=============\nSelecione a opção desejada:\n1-Exportar Dados.\n2-Importar Dados.\n3-Voltar\n==============================================================================\n"); while(scanf("%d%c",&q2,&temp)!=2||q2>3|q2<1){
     printf("Opção inválida.\n");  
     clean();}clear();
-
+while(q2==1){
+    char nome[100];
+    printf("Insira o nome do arquivo de saída(padrão: data):\n");
+    while(verificaCorteEntrada(nome)||verificaAlfa(nome)){
+        printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
+        fgets(nome,sizeof(nome),stdin);
+    }formatarEntry(nome); 
+    salvarCSV(lista,10000,nome);
+}
+while(q2==2){
+    char nome[100];
+    printf("Insira o nome do arquivo de entrada(padrão: data):\n");
+    while(verificaCorteEntrada(nome)||verificaAlfa(nome)){
+        printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
+        fgets(nome,sizeof(nome),stdin);
+    }formatarEntry(nome); 
+    carregarCSV(lista,10000,nome);
+}
+if(q2==3){
+    clear();
+    break;
+}
 }
 
 
-while(q1==3){printf("=============|Estatísticas - Estações Meteorológicas|=============\nSelecione a opção desejada:\n1-Imprimir estatísicas.\n2-Voltar.\n==============================================================================\n"); while(scanf("%d%c",&q3,&temp)!=2||q3>2|q1<3){
+while(q1==3){printf("=============|Estatísticas - Estações Meteorológicas|=============\nSelecione a opção desejada:\n1-Imprimir estatísicas.\n2-Voltar.\n==============================================================================\n"); while(scanf("%d%c",&q2,&temp)!=2||q2>2|q2<1){
     printf("Opção inválida.\n");  
     clean();}clear();
     if(q3==1){
@@ -84,9 +105,45 @@ while(q1==3){printf("=============|Estatísticas - Estações Meteorológicas|==
     printf("Número de leituras:%d\nMédia:%.5f\nVariância:%.5f\nDesvio Padrão:%.5f\nMaior leitura:%.5f\nMenor leitura:%.5f\n",atual->n,atual->media,atual->variancia,atual->desvioPadrao,achaMaior(atual->leituras,atual->n),achaMenor(atual->leituras,atual->n));
     } else {printf("Não existe uma estação com esse ID.\n");
     }
+    } else {
+        clear();
+        break;
+     }
+}while(q1==4){
+    printf("=============|Vizualizar - Estações Meteorológicas|=============\nSelecione a opção desejada:\n1-Listar todas as estações.\n2-Busca por operador.\n3-Busca por sensor.\n4-Voltar.\n==============================================================================\n"); while(scanf("%d%c",&q2,&temp)!=2||q2>4|q2<1){
+    printf("Opção inválida.\n");  
+    clean();}clear();
+        while(q2==1){
+            listarEstacoes(lista);
+            printf("\n\n");
+            break;}
+         while(q2==2){
+            char nome[100];
+            printf("Insira o nome do operador:\n");
+            while(verificaCorteEntrada(nome)||verificaAlfa(nome)){
+        printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
+        fgets(nome,sizeof(nome),stdin);
+    }formatarEntry(nome); 
+    buscarPorOperador(lista,nome);
+            printf("\n\n");
+            break;}
+        while(q2==3){
+            char nome[100];
+            printf("Insira o nome do sensor:\n");
+            while(verificaCorteEntrada(nome)||verificaAlfa(nome)){
+        printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
+        fgets(nome,sizeof(nome),stdin);
+    }formatarEntry(nome); 
+    buscarPorSensor(lista,nome);
+            printf("\n\n");
+            break;}
+    if(q2==4){
+        clear();
+        break;
     }
+}
 
-}while(q1==5){
+while(q1==5){
     return 0;
 }
     
