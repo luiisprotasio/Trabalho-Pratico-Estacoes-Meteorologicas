@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "stats.h"
+#include "../packages/stats.h"
 
 float calcularMediaRecursiva(float *leituras, int n){
     if(n==1){

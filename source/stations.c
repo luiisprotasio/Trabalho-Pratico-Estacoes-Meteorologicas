@@ -199,10 +199,15 @@ for (int i = 0; i<count; i++){
     }
 }
 void detectarAnomalias(Estacao **name,int id){
+    int count=0;
     for(int i = 0;i<name[id]->n;i++){
         if((name[id]->leituras[i]-name[id]->media)>2*name[id]->desvioPadrao){
             printf("LEITURA %d ANÔMALA: %f",i,name[id]->leituras[i]);
+            count++;
         }
     }
+    if(count==0){
+        printf("Não houve nenhuma leitura anômala.\n");
+    } else{("Detectadas %d leituras anômalas.\n",count);}
 
 }
