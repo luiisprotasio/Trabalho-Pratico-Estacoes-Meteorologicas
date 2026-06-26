@@ -1,4 +1,22 @@
  #include "../packages/data.h"
+ #include <stdio.h>
+ #include <stdlib.h>
 
-void salvarCSV(Estacao *lista, int qtdEstacoes); //persiste os dados em um arquivo com base em uma lista de estações e a quantidade de estações desta
+void salvarCSV(Estacao *lista, int qtdEstacoes, const char *nomeArquivo){
+    FILE *arquivo = fopen(nomeArquivo,"w");
+    if (arquivo==NULL){
+        printf("Erro ao abrir o arquivo.\n");
+        return; //verifica que a criação do arquivo teve sucesso
+    }
+    fprintf(arquivo,"ID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras.\n");
+    for (int i =0; i<qtdEstacoes; i++){
+        fprintf(arquivo, "%d,%s,%s,%s,%d,%.2f,%.2f,%.2f",lista[i].id,lista[i].nome,lista[i].operador,lista[i].sensor,lista[i].n,lista[i].media,lista[i].variancia,lista[i].desvioPadrao);
+        for (int j = 0; i<lista[i].n;j++){
+            fprintf(arquivo,",%.2f",lista[i].leituras[j]);
+        }
+        fprintf(arquivo,"\n");
+    }
+    fclose(arquivo);
+    printf("Dados salvos em um arquivo CSV. Procure por %s.csv\n",nomeArquivo);
+}
 void carregarCSV(Estacao *lista, int qtdEstacoes, const char *nomeArquivo);// carrega um arquivo cujo nome deve ser informado, extraindo as informações pra memória do programa
