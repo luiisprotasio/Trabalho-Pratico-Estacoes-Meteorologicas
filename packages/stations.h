@@ -8,9 +8,9 @@ typedef struct DataLeitura {
 }DataLeitura;
 typedef struct Estacao {
     int id;
-    char nome[40];
-    char operador[40];
-    char sensor[20];
+    char nome[60];
+    char operador[60];
+    char sensor[60];
     int n; //QUANTIDADE DE LEITURAS
     float *leituras;
     float media;
@@ -18,12 +18,11 @@ typedef struct Estacao {
     float desvioPadrao;
     DataLeitura data;
 }Estacao;
-
-/*struct Estacao adicionarEstacao(); pretendia fazer desta forma, mas optei por fazer passagem por ponteiros...*/
-void adicionarEstacao(Estacao *name);
-void editarEstacao(Estacao *name);
-void removerEstacao(Estacao *name);
-void listarEstacoes();
-void buscarPorOperador(char *name);
-void detectarAnomalias(Estacao *name);
+void adicionarEstacao(Estacao **name);// Adiciona uma nova estação ao sistema, registrando todos seus dados e automaticamente calculando suas estatísticas.
+void editarEstacao(Estacao *name, int modo); // Permite editar nome(1), operador(2), sensor(3) ou data da estação(4), de acordo com o modo.
+void removerEstacao(Estacao **name,int id); // Remove a estação da memória, permitindo que uma nova estação seja criada com o id da antiga
+void listarEstacoes(Estacao **name); // Exibe todas as estações e suas estatísticas.
+void buscarPorOperador(Estacao **name,char *operador); // Busca todas as estações atribuidas a um operador
+void buscarPorSensor(Estacao **name, char *sensor); // Busca todas as estações que tem o mesmo tipo de sensor
+void detectarAnomalias(Estacao **name,int id);//detecta quais leituras da estação são anomalas. Leituras anomalas são aquelas que se afastam da média em pelo menos dois desvios-padrão.
 #endif

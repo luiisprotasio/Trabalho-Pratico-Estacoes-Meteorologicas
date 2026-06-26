@@ -1,1 +1,0 @@
-O diretório "packages" contém os arquivos de cabeçalho de cada um dos módulos de funções do programa.
