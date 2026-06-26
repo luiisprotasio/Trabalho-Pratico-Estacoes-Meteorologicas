@@ -5,17 +5,28 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-void criaEstacao(Estacao **lista){
-
-
+int criaEstacao(Estacao **lista){
+    char temp;
+    int id;
+while(scanf("%d%c",&id,&temp)!=2||id>9999||id<0){
+    printf("ID inválido. O identificador deve ser tal que 0<ID<9999.\n");  
+    clean();
+}
+    if (lista[id]!=NULL){
+        printf("Já existe uma estação com este id...\n");
+        return 1;
+    }
+    lista[id]=(Estacao *)calloc(1,sizeof(Estacao));
+    if(lista[id]==NULL){
+        return 1;
+    }
+    return 0;
 }
 void adicionarEstacao(Estacao *name){
     char temp;
-    /*printf("Registrando nova estação...\nInsira o ID da Estação:\n");
-    while(scanf("%d%c",&name->id,&temp)!=2||name->id>9999||name->id<0){
-    printf("ID inválido. O identificador deve ser tal que 0<ID<9999.\n");  
-    clean();
-    }*/
+    while(criaEstacao(name)){
+        printf("Houve um erro na criação da estação. Tentando novamente.\n");
+    }
   
     printf("Configurando estação %d. Informe o nome da estação.\n",name->id);
     fgets(name->nome,sizeof(name->nome),stdin);
@@ -54,7 +65,7 @@ void adicionarEstacao(Estacao *name){
     }   printf("Leituras registradas. Informe a data da leitura (dd/mm/aaaa).\n");
     while(scanf("%d/%d/%d",&name->data.dia,&name->data.mes,&name->data.ano)!=3||verificaData(name->data)){
         printf("Data inválida. Certifique-se de inserir uma data válida seguindo o modelo dd/mm/aaaa.\n");
-        clean():
+        clean();
     }
     printf("Data registrada com sucesso. Calculando estatísticas...\n");
     name->media=calcularMediaRecursiva(name->leituras,name->n);
@@ -101,7 +112,7 @@ if(modo==3){
 if(modo==4){printf("MODO DATA: Informe a data da leitura (dd/mm/aaaa).\n");
     while(scanf("%d/%d/%d",&name->data.dia,&name->data.mes,&name->data.ano)!=3||verificaData(name->data)){
         printf("Data inválida. Certifique-se de inserir uma data válida seguindo o modelo dd/mm/aaaa.\n");
-       clean():
+       clean();
     }
     printf("Data registrada com sucesso.\n");
     return;
