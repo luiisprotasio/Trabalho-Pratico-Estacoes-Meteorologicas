@@ -1,1 +1,0 @@
-O diretório "source" compila todos os arquivos de código-fonte do programa.
