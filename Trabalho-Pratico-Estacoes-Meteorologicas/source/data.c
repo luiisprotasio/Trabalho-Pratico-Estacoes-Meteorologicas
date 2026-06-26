@@ -29,7 +29,7 @@ void carregarCSV(Estacao **lista, int qtdEstacoes, const char *nomeArquivo){
     sprintf(caminho,"./data/%s.csv",nomeArquivo);
     FILE *arquivo= fopen(caminho,"r");
     if (arquivo==NULL){
-        printf("ERRO: Cheque o nome do arquivo e tente novamente");
+        printf("ERRO: Cheque o nome do arquivo e tente novamente\n");
         return;
     }
     char temp[2000];

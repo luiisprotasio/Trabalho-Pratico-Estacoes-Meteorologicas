@@ -47,14 +47,15 @@ while(q1==1){
     printf("Opção inválida.\n");  
     clean();}clear();
     while (q3==1){
-        printf("Qual o id da estação a ser editada?\n");
+        printf("Qual o id da estação a ser excluída?\n");
     while(scanf("%d%c",&ide,&temp)!=2||ide>9999||ide<0){
     printf("ID inválida.\n");  
     clean();}clear();
     if(lista[ide]!=NULL){
         removerEstacao(lista,ide);
+        break;
     } else {printf("Estação não existente.\n");}
-    }while(q3==2){
+    }if(q3==2){
         clear();
         break;
     }
@@ -66,23 +67,23 @@ while(q1==1){
 }while(q1==2){printf("=============|Exportar/Importar dados - Estações Meteorológicas|=============\nSelecione a opção desejada:\n1-Exportar Dados.\n2-Importar Dados.\n3-Voltar\n==============================================================================\n"); while(scanf("%d%c",&q2,&temp)!=2||q2>3|q2<1){
     printf("Opção inválida.\n");  
     clean();}clear();
+    
 while(q2==1){
     char nome[100];
     printf("Insira o nome do arquivo de saída(padrão: data):\n");
-    while(verificaCorteEntrada(nome)||verificaAlfa(nome)){
-        printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
+     fgets(nome,sizeof(nome),stdin);
+     formatarEntry(nome); 
         fgets(nome,sizeof(nome),stdin);
-    }formatarEntry(nome); 
     salvarCSV(lista,10000,nome);
+    break;
 }
 while(q2==2){
     char nome[100];
     printf("Insira o nome do arquivo de entrada(padrão: data):\n");
-    while(verificaCorteEntrada(nome)||verificaAlfa(nome)){
-        printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
-        fgets(nome,sizeof(nome),stdin);
-    }formatarEntry(nome); 
+     fgets(nome,sizeof(nome),stdin);
+     formatarEntry(nome); 
     carregarCSV(lista,10000,nome);
+    break;
 }
 if(q2==3){
     clear();
@@ -94,7 +95,7 @@ if(q2==3){
 while(q1==3){printf("=============|Estatísticas - Estações Meteorológicas|=============\nSelecione a opção desejada:\n1-Imprimir estatísicas.\n2-Voltar.\n==============================================================================\n"); while(scanf("%d%c",&q2,&temp)!=2||q2>2|q2<1){
     printf("Opção inválida.\n");  
     clean();}clear();
-    if(q3==1){
+    if(q2==1){
         int ide;
         printf("Insira o ID da estação desejada.\n");
         while(scanf("%d%c",&ide,&temp)!=2||ide>9999||ide<0){
@@ -120,6 +121,7 @@ while(q1==3){printf("=============|Estatísticas - Estações Meteorológicas|==
          while(q2==2){
             char nome[100];
             printf("Insira o nome do operador:\n");
+            fgets(nome,sizeof(nome),stdin);
             while(verificaCorteEntrada(nome)||verificaAlfa(nome)){
         printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
         fgets(nome,sizeof(nome),stdin);
@@ -130,6 +132,7 @@ while(q1==3){printf("=============|Estatísticas - Estações Meteorológicas|==
         while(q2==3){
             char nome[100];
             printf("Insira o nome do sensor:\n");
+            fgets(nome,sizeof(nome),stdin);
             while(verificaCorteEntrada(nome)||verificaAlfa(nome)){
         printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
         fgets(nome,sizeof(nome),stdin);
