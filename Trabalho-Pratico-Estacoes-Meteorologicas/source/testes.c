@@ -15,5 +15,7 @@ int main() {
     buscarPorOperador(lista,"Luis");
     buscarPorOperador(lista,"Clenis");
     buscarPorSensor(lista,"Clima");
+    removerEstacao(lista,10);
+    listarEstacoes(lista);
     return 0;
 }

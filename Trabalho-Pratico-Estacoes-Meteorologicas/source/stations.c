@@ -130,8 +130,10 @@ void removerEstacao(Estacao **name,int id){
         }
         free(name[id]);
         name[id]=NULL;
+        printf("Estação %d removida.\n",id);
     } else {printf("Estação inexistente.");
     }
+    
 }
 void listarEstacoes(Estacao **name){
 int count=0;
@@ -142,7 +144,7 @@ for(int i = 0; i < 10000; i++){
         count++;
     } // conta as estações e salva os ID's válidos.
 }if(count>0){
-printf("ID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n");
+printf("Listando estações!\nID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n");
 for (int i = 0; i<count; i++){
         printf("%d,%s,%s,%s,%d/%d/%d,%d,%.2f,%.2f,%.2f",name[estacoes[i]]->id,name[estacoes[i]]->nome,name[estacoes[i]]->operador,name[estacoes[i]]->sensor,name[estacoes[i]]->data.dia,name[estacoes[i]]->data.mes,name[estacoes[i]]->data.ano,name[estacoes[i]]->n,name[estacoes[i]]->media,name[estacoes[i]]->variancia,name[estacoes[i]]->desvioPadrao);
         for (int j = 0; j<name[estacoes[i]]->n;j++){
@@ -163,7 +165,7 @@ for(int i = 0; i < 10000; i++){
         count++;
     } // conta as estações e salva os ID's válidos.
 }if(count>0){
-printf("ID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n");
+printf("Estações atribuídas a %s:\nID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n",operador);
 for (int i = 0; i<count; i++){
         printf("%d,%s,%s,%s,%d/%d/%d,%d,%.2f,%.2f,%.2f",name[estacoes[i]]->id,name[estacoes[i]]->nome,name[estacoes[i]]->operador,name[estacoes[i]]->sensor,name[estacoes[i]]->data.dia,name[estacoes[i]]->data.mes,name[estacoes[i]]->data.ano,name[estacoes[i]]->n,name[estacoes[i]]->media,name[estacoes[i]]->variancia,name[estacoes[i]]->desvioPadrao);
         for (int j = 0; j<name[estacoes[i]]->n;j++){
@@ -184,7 +186,7 @@ for(int i = 0; i < 10000; i++){
         count++;
     } // conta as estações e salva os ID's válidos.
 }if(count>0){
-printf("ID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n");
+printf("Estações com o sensor %s:\nID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n",sensor);
 for (int i = 0; i<count; i++){
         printf("%d,%s,%s,%s,%d/%d/%d,%d,%.2f,%.2f,%.2f",name[estacoes[i]]->id,name[estacoes[i]]->nome,name[estacoes[i]]->operador,name[estacoes[i]]->sensor,name[estacoes[i]]->data.dia,name[estacoes[i]]->data.mes,name[estacoes[i]]->data.ano,name[estacoes[i]]->n,name[estacoes[i]]->media,name[estacoes[i]]->variancia,name[estacoes[i]]->desvioPadrao);
         for (int j = 0; j<name[estacoes[i]]->n;j++){
