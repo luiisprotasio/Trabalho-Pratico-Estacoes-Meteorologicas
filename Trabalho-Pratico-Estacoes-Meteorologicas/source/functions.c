@@ -7,6 +7,10 @@
 void clean(){
     while (getchar() != '\n');
 }
+void clear(){
+    printf("\e[1J\e[H"); //limpa a tela e depois move o cursor pra esquerda em cima
+}
+
 int verificaCorteEntrada(char *str){
     if(str==NULL){
         return 1; //fgets encontrou erro
