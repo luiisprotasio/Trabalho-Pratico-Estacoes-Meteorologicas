@@ -6,11 +6,8 @@
     #include "../packages/stations.h"
     #include "../packages/data.h"
 int main() {
-    Estacao *lista[10000] = {NULL}; // Alocando as estações dessa forma, teremos exatamente a quantia possíveis de estações que atendam ao requisito de ID, porém, sem estourar a memória de uma vez, pois alocar esta quantidade de estrutura gasta uma boa quantia de memória. Além disso, o id será o próprio índice do array, o que facilita o acesso.
-    if (lista==NULL){
-        printf("Memória insuficiente. Encerrando o programa.\n");
-        return -1;
-    }
+    Estacao *lista[10000]={NULL};
+    // Alocando as estações dessa forma, teremos exatamente a quantia possíveis de estações que atendam ao requisito de ID, porém, sem estourar a memória de uma vez, pois alocar esta quantidade de estrutura gasta uma boa quantia de memória. Além disso, o id será o próprio índice do array, o que facilita o acesso.
     
 
     return 0;

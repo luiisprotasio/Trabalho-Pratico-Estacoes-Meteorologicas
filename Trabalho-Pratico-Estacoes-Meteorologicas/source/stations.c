@@ -19,6 +19,7 @@ void adicionarEstacao(Estacao **name){
     }
     name[id]=(Estacao *)calloc(1,sizeof(Estacao));
     if(name[id]==NULL){
+        printf("Memória insuficiente para criar essa estação.\n");
         return;
     }
     Estacao *estacaoAtual = name[id];
@@ -118,10 +119,20 @@ if(modo==4){printf("MODO DATA: Informe a data da leitura (dd/mm/aaaa).\n");
 
 
 }
-void removerEstacao(Estacao *name){
-    name=NULL;
+void removerEstacao(Estacao **name,int id){
+    if(id>9999||id<0){
+        printf("ID inválido.");
+        return;
+    }
+    if(name[id]!=NULL){
+        if(name[id]->leituras!=NULL){
+            free(name[id]->leituras);
+        }
+        free(name[id]);
+        name[id]=NULL;
+    } else {printf("Estação inexistente.");
+    }
 }
-void removerEstacao(Estacao *name);
 void listarEstacoes();
 void buscarPorOperador(char *name);
 void detectarAnomalias(Estacao *name);
