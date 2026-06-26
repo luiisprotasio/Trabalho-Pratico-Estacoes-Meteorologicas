@@ -1,0 +1,13 @@
+
+*.exe
+*.out
+main
+programa
+rodar_testes
+a.out
+*.o
+*.gch
+.vscode/
+data/*.csv
+*.csv   
+Trabalho-Pratico-Estacoes-Meteorologicas/teste
