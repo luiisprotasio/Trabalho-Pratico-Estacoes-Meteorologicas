@@ -19,7 +19,7 @@ int verificaCorteEntrada(char *str){
 int verificaAlfa(char *str){
     char temp[60];
     strcpy(temp,str);
-    temp[strlen(temp)-1]='\0';
+    formatarEntry(temp);
     if(strlen(temp)==1){
         if(!isalpha(temp[0])){
             return 1;
@@ -32,6 +32,11 @@ int verificaAlfa(char *str){
     }
     return 0;
 
+}
+void formatarEntry(char *str){
+    if(str[strlen(str)-1]=='\n'){
+    str[strlen(str)-1]='\0';
+    }
 }
 int verificaData(DataLeitura data){
     if(data.ano>2200||data.ano<=0){

@@ -19,18 +19,20 @@ void adicionarEstacao(Estacao *name){
     while(verificaCorteEntrada(name->nome)||verificaAlfa(name->nome)){
         printf("Nome inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
         fgets(name->nome,sizeof(name->nome),stdin);
-    }
+    }formatarEntry(name->nome); 
      printf("Nome registrado. Informe o nome do operador.\n");
     fgets(name->operador,sizeof(name->operador),stdin);
     while(verificaCorteEntrada(name->operador)||verificaAlfa(name->operador)){
         printf("Operador inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
         fgets(name->operador,sizeof(name->operador),stdin);
-    } printf("Operador registrado. Informe o sensor da estação.\n");
+    }formatarEntry(name->operador); 
+    printf("Operador registrado. Informe o sensor da estação.\n");
     fgets(name->sensor,sizeof(name->sensor),stdin);
     while(verificaCorteEntrada(name->sensor)||verificaAlfa(name->sensor)){
         printf("Sensor inválido. Tenha certeza de que o nome tenha no máximo 59 caracteres,todos alfabéticos,e tente novamente.\n");
         fgets(name->sensor,sizeof(name->sensor),stdin);
-    } printf("Sensor registrado. Estação pronta para registrar leituras! Informe o número de leituras a serem feitas.\n");
+    }formatarEntry(name->sensor);  
+    printf("Sensor registrado. Estação pronta para registrar leituras! Informe o número de leituras a serem feitas.\n");
     while(scanf("%d%c",&name->n,&temp)!=2||temp!='\n'||name->n<=0||name->n>9999){ printf("Número inválido. Certifique-se de inserir somente um inteiro entre 1 e 9999\n");
     while (getchar() != '\n'); //limpador de buffer
     }
