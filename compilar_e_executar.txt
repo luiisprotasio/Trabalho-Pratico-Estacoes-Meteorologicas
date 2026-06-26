@@ -1,7 +1,7 @@
 Para compilar e executar o código, siga estas instruções:
 
 Terminal do Linux:
-gcc -Wall -Wextra -g source/main.c source/data.c source/stations.c source/stats.c source/functions.c -o programa && ./programa
+gcc source\*.c -o programa.exe && programa.exe
 
 CMD do Windows:
-gcc -Wall -Wextra -g source\main.c source\data.c source\stations.c source\stats.c source\functions.c -o programa.exe && programa.exe
+gcc source\*.c -o programa.exe && .\programa.exe
