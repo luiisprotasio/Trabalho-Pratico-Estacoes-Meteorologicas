@@ -2,9 +2,11 @@
     #include <stdlib.h>
     #include <string.h>
     #include <stdio.h>
+    #include <ctype.h>
     #include "../packages/stats.h"
     #include "../packages/stations.h"
     #include "../packages/data.h"
+    #include "../packages/functions.h"
 int main() {
     Estacao *lista[10000]={NULL};
     int q1,q2,q3,q4,q5,q6,q7,q8=0; char temp; //variáveis auxiliares para seleções no menu
@@ -41,10 +43,21 @@ while(q1==1){
 }while(q2==3){printf("=============|Estatísticas - Estacoes Meteorológicas|=============\nSelecione a opção desejada:\n1-Imprimir estatísicas.\n2-Voltar.\n=============================================================================="); while(scanf("%d%c",&q3,&temp)!=2||q3>2|q1<3){
     printf("Opção inválida.\n");  
     clean();}printf("clear");
-
+    if(q3==1){
+        int ide;
+        printf("Insira o ID da estação desejada.\n");
+        while(scanf("%d%c",&ide,&temp)!=2||ide>9999||ide<0){
+    printf("ID inválida.\n");  
+    clean();}printf("clear");
+    if (lista[ide]!=NULL){
+    Estacao *atual=lista[ide];
+    printf("Número de leituras:%d\nMédia:%.5f\nVariância:%.5f\nDesvio Padrão:%.5f\nMaior leitura:%.5f\nMenor leitura:%.5f\n",atual->n,atual->media,atual->variancia,atual->variancia,atual->desvioPadrao,achaMaior(atual->leituras,atual->n),achaMenor(atual->leituras,atual->n));
+    } else {printf("Não existe uma estação com esse ID.\n");
+    }
+    }
 
 }
     }
-
+    }
     return 0;
 }
