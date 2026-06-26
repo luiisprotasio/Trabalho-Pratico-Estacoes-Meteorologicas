@@ -10,12 +10,14 @@ void salvarCSV(Estacao **lista, int qtdEstacoes, const char *nomeArquivo){
     }
     fprintf(arquivo,"ID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n");
     for (int i =0; i<qtdEstacoes; i++){
+        if(lista[i]!=NULL){
         fprintf(arquivo, "%d,%s,%s,%s,%d/%d/%d,%d,%.2f,%.2f,%.2f",lista[i]->id,lista[i]->nome,lista[i]->operador,lista[i]->sensor,lista[i]->data.dia,lista[i]->data.mes,lista[i]->data.ano,lista[i]->n,lista[i]->media,lista[i]->variancia,lista[i]->desvioPadrao);
         for (int j = 0; j<lista[i]->n;j++){
             fprintf(arquivo,",%.2f",lista[i]->leituras[j]);
         }
         fprintf(arquivo,"\n");
     }
+}
     fclose(arquivo);
     printf("Dados salvos em um arquivo CSV. Procure por %s.csv\n",nomeArquivo);
 }
