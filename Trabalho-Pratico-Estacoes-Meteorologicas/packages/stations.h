@@ -8,9 +8,9 @@ typedef struct DataLeitura {
 }DataLeitura;
 typedef struct Estacao {
     int id;
-    char nome[40];
-    char operador[40];
-    char sensor[20];
+    char nome[60];
+    char operador[60];
+    char sensor[60];
     int n; //QUANTIDADE DE LEITURAS
     float *leituras;
     float media;
