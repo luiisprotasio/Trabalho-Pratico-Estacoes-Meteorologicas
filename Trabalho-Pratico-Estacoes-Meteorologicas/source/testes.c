@@ -11,5 +11,9 @@ int main() {
     Estacao *lista[10000]={NULL};
     adicionarEstacao(lista);
     salvarCSV(lista,10000,"teste.csv");
+    listarEstacoes(lista);
+    buscarPorOperador(lista,"Luis");
+    buscarPorOperador(lista,"Clenis");
+    buscarPorSensor(lista,"Clima");
     return 0;
 }

@@ -19,6 +19,6 @@ void salvarCSV(Estacao **lista, int qtdEstacoes, const char *nomeArquivo){
     }
 }
     fclose(arquivo);
-    printf("Dados salvos em um arquivo CSV. Procure por %s.csv\n",nomeArquivo);
+    printf("Dados salvos em um arquivo CSV. Procure por %s\n",nomeArquivo);
 }
 void carregarCSV(Estacao **lista, int qtdEstacoes, const char *nomeArquivo);// carrega um arquivo cujo nome deve ser informado, extraindo as informações pra memória do programa
