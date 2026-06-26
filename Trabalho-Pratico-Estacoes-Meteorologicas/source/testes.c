@@ -10,6 +10,6 @@
 int main() {
     Estacao *lista[10000]={NULL};
     adicionarEstacao(lista);
-    salvarCSV(lista,10000,"teste");
+    salvarCSV(lista,10000,"teste.csv");
     return 0;
 }
