@@ -133,8 +133,60 @@ void removerEstacao(Estacao **name,int id){
     } else {printf("Estação inexistente.");
     }
 }
-void listarEstacoes();
-void buscarPorOperador(char *name);
+void listarEstacoes(Estacao **name){
+int count=0;
+int estacoes[10000]={NULL};
+for(int i = 0; i < 10000; i++){
+    if(name[i]=!NULL){
+        estacoes[count]=i;
+        count++;
+    } // conta as estações e salva os ID's válidos.
+}
+printf("ID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n");
+for (int i = 0; i<count; i++){
+        printf("%d,%s,%s,%s,%d/%d/%d,%d,%.2f,%.2f,%.2f",name[estacoes[i]]->id,name[estacoes[i]]->nome,name[estacoes[i]]->operador,name[estacoes[i]]->sensor,name[estacoes[i]]->data.dia,name[estacoes[i]]->data.mes,name[estacoes[i]]->data.ano,name[estacoes[i]]->n,name[estacoes[i]]->media,name[estacoes[i]]->variancia,name[estacoes[i]]->desvioPadrao);
+        for (int j = 0; j<name[estacoes[i]]->n;j++){
+            printf(",%.2f",name[estacoes[i]]->leituras[j]);
+        }
+        printf("\n");
+    }
+} 
+void buscarPorOperador(Estacao **name,char *operador){
+    int count=0;
+int estacoes[10000]={NULL};
+for(int i = 0; i < 10000; i++){
+    if(name[i]=!NULL&&name[i]->operador==operador){
+        estacoes[count]=i;
+        count++;
+    } // conta as estações e salva os ID's válidos.
+}
+printf("ID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n");
+for (int i = 0; i<count; i++){
+        printf("%d,%s,%s,%s,%d/%d/%d,%d,%.2f,%.2f,%.2f",name[estacoes[i]]->id,name[estacoes[i]]->nome,name[estacoes[i]]->operador,name[estacoes[i]]->sensor,name[estacoes[i]]->data.dia,name[estacoes[i]]->data.mes,name[estacoes[i]]->data.ano,name[estacoes[i]]->n,name[estacoes[i]]->media,name[estacoes[i]]->variancia,name[estacoes[i]]->desvioPadrao);
+        for (int j = 0; j<name[estacoes[i]]->n;j++){
+            printf(",%.2f",name[estacoes[i]]->leituras[j]);
+        }
+        printf("\n");
+    }
+}
+void buscarPorSensor(Estacao **name, char *sensor){
+   int count=0;
+int estacoes[10000]={NULL};
+for(int i = 0; i < 10000; i++){
+    if(name[i]=!NULL&&name[i]->sensor==sensor){
+        estacoes[count]=i;
+        count++;
+    } // conta as estações e salva os ID's válidos.
+}
+printf("ID,Nome,Operador,Sensor,Data,N,Media,Variancia,DesvioPadrao,Leituras->\n");
+for (int i = 0; i<count; i++){
+        printf("%d,%s,%s,%s,%d/%d/%d,%d,%.2f,%.2f,%.2f",name[estacoes[i]]->id,name[estacoes[i]]->nome,name[estacoes[i]]->operador,name[estacoes[i]]->sensor,name[estacoes[i]]->data.dia,name[estacoes[i]]->data.mes,name[estacoes[i]]->data.ano,name[estacoes[i]]->n,name[estacoes[i]]->media,name[estacoes[i]]->variancia,name[estacoes[i]]->desvioPadrao);
+        for (int j = 0; j<name[estacoes[i]]->n;j++){
+            printf(",%.2f",name[estacoes[i]]->leituras[j]);
+        }
+        printf("\n");
+    }
+}
 void detectarAnomalias(Estacao **name,int id){
     for(int i = 0;i<name[id]->n;i++){
         if((name[id]->leituras[i]-name[id]->media)>2*name[id]->desvioPadrao){
